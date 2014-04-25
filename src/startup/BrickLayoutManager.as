@@ -13,7 +13,7 @@ package startup {
 		}
 		
 		// possible duplication of loop structure in addBrickRow()
-		public function layIt():void {
+		public function addBricks():void {
 			for (var y:uint = 0; y < startingFormation.length; y++)
 				addBrickRow(y);
 		}

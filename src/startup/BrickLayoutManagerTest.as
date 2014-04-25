@@ -17,9 +17,8 @@ package startup {
 		
 		private function setBricks(formation:Array):void {
 			manager = new BrickLayoutManager(formation, container);
-			manager.layIt();
+			manager.addBricks();
 		}
-		// test that generated block goes to the frame that is in the index it inspects. (future feature)
 		
 		public function test_single_brick():void {
 			setBricks([[1]]);

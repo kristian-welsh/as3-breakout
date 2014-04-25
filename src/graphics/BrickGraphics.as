@@ -2,12 +2,14 @@ package graphics {
 	import flash.display.MovieClip;
 	
 	public class BrickGraphics extends MovieClip {
-		static public const BRICK_WIDTH:Number = 60;
-		static public const BRICK_HEIGHT:Number = 15;
+		static public var BRICK_WIDTH:Number;
+		static public var BRICK_HEIGHT:Number;
 		
 		// graphics linked in with fla
-		public function BrickGraphics():void {
+		public function BrickGraphics() {
 			super();
+			BRICK_WIDTH = width;
+			BRICK_HEIGHT = height;
 		}
 		
 		public function positionToIndex(xIndex:uint, yIndex:uint):void {
