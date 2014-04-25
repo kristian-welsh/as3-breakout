@@ -1,36 +1,21 @@
 package {
-	import asunit.textui.TestRunner;
+	import data.MainLevelData;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import graphics.*;
-	import test.AllTests;
+	import startup.BrickLayoutManager;
 	
 	public class Main extends Sprite {
-		static public const IS_TEST:Boolean = true;
-		
 		public function Main():void {
 			if (stage)
-				startApp();
-			else
-				addEventListener(Event.ADDED_TO_STAGE, startApp);
-		}
-		
-		private function startApp(e:Event = null):void {
-			if (IS_TEST)
-				startTests();
-			else
 				startGame();
+			else
+				addEventListener(Event.ADDED_TO_STAGE, startGame);
 		}
 		
-		private function startTests():void {
-			var testRunner:TestRunner = new TestRunner();
-			stage.addChild(testRunner);
-			testRunner.start(AllTests);
-		}
-		
-		private function startGame():void {
+		private function startGame(e:Event = null):void {
 			//show each graphic (temp)
-			var paddleGraphics:PaddleGraphics = new PaddleGraphics();
+			/*var paddleGraphics:PaddleGraphics = new PaddleGraphics();
 			var ballGraphics:BallGraphics = new BallGraphics();
 			var brickGraphics:BrickGraphics = new BrickGraphics();
 			paddleGraphics.x = 0;
@@ -38,7 +23,9 @@ package {
 			brickGraphics.x = 200;
 			stage.addChild(paddleGraphics);
 			stage.addChild(ballGraphics);
-			stage.addChild(brickGraphics);
+			stage.addChild(brickGraphics);*/
+			var layoutManager:BrickLayoutManager = new BrickLayoutManager(MainLevelData.data, this);
+			layoutManager.layIt();
 		}
 	}
 }
